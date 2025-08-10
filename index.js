@@ -10,6 +10,13 @@ const THAI_POST_TOKEN = 'U*N^HMZ4N-OtXtOiWPBZFoFTIeJJECN=IFQtQ!Q-NUKmRME%HvQpYfC
 app.post('/webhook', async (req, res) => {
   const trackingNumber = req.body.queryResult.parameters.number;
 
+  // ถ้าไม่มีเลขพัสดุ ให้บอทถามก่อน
+  if (!trackingNumber) {
+    return res.json({
+      fulfillmentText: 'กรุณาพิมพ์เลขพัสดุของคุณด้วยค่ะ 📦'
+    });
+  }
+
   try {
     // ดึง access token ใหม่ (อายุสั้น)
     const auth = await axios.post(
