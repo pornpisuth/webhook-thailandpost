@@ -5,7 +5,7 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-const THAI_POST_TOKEN = 'LqRwKIERNMTcAhI1DUKxFPXwAUJGS4CxPXHHCfE2P2R1LUX0XXPiFWLRBWHJW2Q!EoN9XbTQItK!B0H6SOLNTZOtAKE%P6L_L:Ho';
+const THAI_POST_TOKEN = 'U*N^HMZ4N-OtXtOiWPBZFoFTIeJJECN=IFQtQ!Q-NUKmRME%HvQpYfCVFiORTeXdQrGUPtEzZLCaWpT=SoIBUoH7SsBbQ!RxUaU&';
 
 app.post('/webhook', async (req, res) => {
   const trackingNumber = req.body.queryResult.parameters.number;
